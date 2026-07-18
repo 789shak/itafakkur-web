@@ -31,13 +31,13 @@ import * as THREE from 'three';
  * lighting picks up the edges instead of flattening it.
  */
 function Arch({
-  position,
+  position = [0, 0, 0],
   height = 3,
   width = 1.4,
   depth = 0.18,
   color = '#3A2812',
 }: {
-  position: [number, number, number];
+  position?: [number, number, number];
   height?: number;
   width?: number;
   depth?: number;
