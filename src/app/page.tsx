@@ -1,65 +1,55 @@
-import Image from "next/image";
-
-export default function Home() {
+/**
+ * Home page — Week 1 placeholder.
+ *
+ * The real 3D hero (stylized mosque interior + radial feature reveal)
+ * lands in Week 2. This placeholder proves the design system + fonts
+ * + layout are wired end-to-end, and gives us a shareable staging URL
+ * to demo to early testers.
+ *
+ * Motion: single subtle "breathing" scale on the accent dot. Everything
+ * else is static. Respects prefers-reduced-motion via globals.css.
+ */
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <section className="flex-1 flex flex-col items-center justify-center px-6 py-24 text-center">
+      <div className="flex items-center gap-2 mb-6">
+        <span
+          aria-hidden="true"
+          className="w-2 h-2 rounded-full bg-gold animate-pulse"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+        <span className="text-[11px] font-semibold text-muted uppercase tracking-[0.18em]">
+          Coming soon
+        </span>
+      </div>
+
+      <h1 className="font-serif text-brown text-5xl sm:text-6xl md:text-7xl font-medium tracking-tight leading-[1.05] mb-6 max-w-3xl">
+        A quiet companion for your daily practice.
+      </h1>
+
+      <p className="text-muted text-lg sm:text-xl leading-relaxed max-w-2xl mb-10">
+        Accurate prayer times. The Qur&apos;an with scholar-vetted
+        translations. A moment to reflect. Launching this September.
+      </p>
+
+      <div className="flex flex-col sm:flex-row items-center gap-4">
+        <a
+          href="/download"
+          className="inline-flex items-center px-6 h-11 rounded-full bg-gold text-brown text-sm font-semibold hover:bg-gold-dark hover:text-cream transition-colors"
+        >
+          Get the app now
+        </a>
+        <a
+          href="mailto:support.itafakkur@gmail.com?subject=Notify%20me%20at%20launch"
+          className="inline-flex items-center px-6 h-11 rounded-full border border-border text-brown text-sm font-medium hover:bg-white transition-colors"
+        >
+          Notify me at launch
+        </a>
+      </div>
+
+      <p className="mt-16 text-[13px] text-muted italic max-w-md">
+        &ldquo;Verily, in the remembrance of Allah do hearts find rest.&rdquo;
+        <span className="not-italic"> — Qur&apos;an 13:28</span>
+      </p>
+    </section>
   );
 }

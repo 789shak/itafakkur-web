@@ -1,26 +1,68 @@
 @import "tailwindcss";
 
+/* ---------------------------------------------------------------------
+ * iTafakkur brand tokens
+ *
+ * Locked 2026-07-16 per web v1 spec:
+ *   - Gold primary #D4AF37 (accent, CTAs, focus states)
+ *   - Deep brown #3A2812 (primary text, dark surfaces)
+ *   - Warm cream #F8F5EF (page background, cards)
+ *   - Muted brown #8C7A62 (secondary text, borders)
+ *
+ * Match the mobile app's palette so users experience one brand across
+ * web + iOS + Android. Do NOT rename these without updating the mobile
+ * app's Colors constant too.
+ * ------------------------------------------------------------------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F8F5EF;
+  --foreground: #3A2812;
+  --brand-gold: #D4AF37;
+  --brand-gold-dark: #B8892C;
+  --brand-brown: #3A2812;
+  --brand-cream: #F8F5EF;
+  --brand-muted: #8C7A62;
+  --brand-border: #EFE8DD;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-gold: var(--brand-gold);
+  --color-gold-dark: var(--brand-gold-dark);
+  --color-brown: var(--brand-brown);
+  --color-cream: var(--brand-cream);
+  --color-muted: var(--brand-muted);
+  --color-border: var(--brand-border);
+  --font-serif: var(--font-fraunces);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Dark mode deferred to post-launch. Same tokens for now so we
+       don't ship a half-baked dark theme. Revisit at v1.1. */
+    --background: #F8F5EF;
+    --foreground: #3A2812;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Respect user's reduced-motion preference across all animations. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
