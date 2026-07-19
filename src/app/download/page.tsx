@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 // Placeholder App Store / Play Store URLs — swap with the real ones
 // once v1.4.0 is live in production stores. Both start with the correct
 // scheme so link previews look right.
-const APP_STORE_URL = 'https://apps.apple.com/app/itafakkur/id0000000000';
+const APP_STORE_URL = 'https://apps.apple.com/app/itafakkur/id6766188629';
 const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=net.quranchat.app';
 
 export default function DownloadPage() {
