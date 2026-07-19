@@ -10,6 +10,10 @@ import { Flame } from 'lucide-react';
 import { requireAuth } from '@/lib/require-auth';
 import { apiFetch } from '@/lib/api';
 
+// Auth-gated — habits are per-user. Force dynamic so no shared cache entry
+// is ever built, even if the /habits endpoint is called from an edge worker.
+export const dynamic = 'force-dynamic';
+
 interface Habit {
   id: string;
   name: string;

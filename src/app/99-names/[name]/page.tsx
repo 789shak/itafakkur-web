@@ -12,6 +12,11 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ASMA_UL_HUSNA, getDivineName } from '@/data/asma-ul-husna';
 
+// Content is fully static (from a bundled data module) but we set an
+// explicit ISR window so we can rev content by pushing a redeploy —
+// weekly is more than enough since the 99 Names never change.
+export const revalidate = 604800;
+
 export function generateStaticParams() {
   return ASMA_UL_HUSNA.map((n) => ({ name: n.slug }));
 }

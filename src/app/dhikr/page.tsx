@@ -9,6 +9,10 @@ import Link from 'next/link';
 import { requireAuth } from '@/lib/require-auth';
 import { apiFetch } from '@/lib/api';
 
+// Auth-gated — dhikr counts are per-user. Force dynamic rendering so no
+// ISR cache entry is shared across users.
+export const dynamic = 'force-dynamic';
+
 interface DhikrToday {
   today: number;
   lifetime: number;

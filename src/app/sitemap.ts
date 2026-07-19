@@ -14,6 +14,10 @@ import { CITIES } from '@/data/cities';
 import { QURAN_CHAPTERS } from '@/data/quran-chapters';
 import { ASMA_UL_HUSNA } from '@/data/asma-ul-husna';
 
+// Regenerate the sitemap once per day so `lastModified: now` stays
+// fresh for Google without hammering the build on every request.
+export const revalidate = 86400;
+
 // Fallback used during preview builds; overridden by NEXT_PUBLIC_SITE_URL
 // once we cut over to itafakkur.com in W8.
 const BASE = process.env.NEXT_PUBLIC_SITE_URL || 'https://itafakkur.com';

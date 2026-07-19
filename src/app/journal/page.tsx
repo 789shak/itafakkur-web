@@ -9,6 +9,10 @@ import Link from 'next/link';
 import { requireAuth } from '@/lib/require-auth';
 import { apiFetch } from '@/lib/api';
 
+// Auth-gated — user-personal data must never share an ISR cache entry
+// across users. force-dynamic guarantees per-request rendering.
+export const dynamic = 'force-dynamic';
+
 interface JournalEntry {
   id: string;
   title: string;

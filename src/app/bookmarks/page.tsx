@@ -9,6 +9,9 @@ import { requireAuth } from '@/lib/require-auth';
 import { apiFetch } from '@/lib/api';
 import { getChapter } from '@/data/quran-chapters';
 
+// Auth-gated — bookmarks are per-user. Force dynamic rendering.
+export const dynamic = 'force-dynamic';
+
 interface Bookmark {
   id: string;
   verse_id: string; // "2:255"

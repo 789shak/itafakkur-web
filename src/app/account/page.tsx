@@ -10,6 +10,10 @@ import Link from 'next/link';
 import { requireAuth } from '@/lib/require-auth';
 import { apiFetch } from '@/lib/api';
 
+// Auth-gated — never cache across users. Explicit force-dynamic guards
+// against any accidental static/ISR promotion by Next.js's inference.
+export const dynamic = 'force-dynamic';
+
 interface BackendProfile {
   name?: string | null;
   email?: string | null;
