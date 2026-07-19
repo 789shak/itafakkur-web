@@ -13,7 +13,8 @@ import type { Session } from '@supabase/supabase-js';
 
 const BACKEND_URL = 'https://quranchat-v20-production.up.railway.app/api';
 
-interface FetchOptions extends Omit<RequestInit, 'body'> {
+interface FetchOptions extends RequestInit {
+  /** Shortcut for JSON body. If set, we stringify + set Content-Type. */
   json?: unknown;
 }
 
