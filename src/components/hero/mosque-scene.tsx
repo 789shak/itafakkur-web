@@ -135,11 +135,11 @@ function DustMotes({ count = 240 }: { count?: number }) {
   return (
     <points ref={pointsRef}>
       <bufferGeometry>
+        {/* R3F v9+ requires `args` (constructor tuple) instead of the
+            older count/array/itemSize props. Signature: [array, itemSize]. */}
         <bufferAttribute
           attach="attributes-position"
-          count={count}
-          array={positions}
-          itemSize={3}
+          args={[positions, 3]}
         />
       </bufferGeometry>
       <pointsMaterial
