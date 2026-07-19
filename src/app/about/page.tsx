@@ -57,11 +57,8 @@ export default function AboutPage() {
           iTafakkur is bootstrapped and independent. No VC, no ads. When we
           eventually offer a Plus tier for advanced features (AI Search
           Qur&rsquo;an with unlimited use, richer widgets, deeper analytics), it
-          will help sustain the free tier for everyone else. Until then,{' '}
-          <Link href="/donate" className="text-gold-dark underline">
-            voluntary sadaqah
-          </Link>{' '}
-          from users who&rsquo;ve benefited keeps the lights on.
+          will help sustain the free tier for everyone else. Until then,
+          the app is bootstrapped from the founder&rsquo;s own resources.
         </p>
 
         <h2 className="font-serif text-brown text-2xl font-medium mt-10 mb-4">

@@ -74,11 +74,6 @@ export function SiteFooter() {
                 Get the app
               </Link>
             </li>
-            <li>
-              <Link href="/donate" className="text-muted hover:text-brown transition-colors">
-                Support us
-              </Link>
-            </li>
           </ul>
         </div>
 
