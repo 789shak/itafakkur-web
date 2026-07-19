@@ -15,11 +15,12 @@ export async function register() {
 }
 
 // Automatically report React Server Component errors to Sentry.
-export const onRequestError = async (
-  err: unknown,
-  request: { path: string; method: string },
-  context: { routerKind: 'Pages Router' | 'App Router'; routePath: string; routeType: string },
+// Types are inferred from Next.js — using Parameters<typeof> keeps us
+// aligned with whichever signature the installed Sentry SDK expects.
+type SentryModule = typeof import('@sentry/nextjs');
+export const onRequestError: SentryModule['captureRequestError'] = async (
+  ...args
 ) => {
   const Sentry = await import('@sentry/nextjs');
-  Sentry.captureRequestError(err, request, context);
+  return Sentry.captureRequestError(...args);
 };
