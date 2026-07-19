@@ -28,6 +28,22 @@ export async function GET(request: NextRequest) {
     const supabase = await createClient();
     const { error } = await supabase.auth.exchangeCodeForSession(code);
     if (!error) {
+      // Fire welcome email trigger — idempotent server-side via
+      // profiles.welcomed_at guard. Never blocks the redirect; runs
+      // best-effort. Covers all signup paths (email/password confirmation,
+      // magic link, Google OAuth) since all flow through this callback.
+      try {
+        const { data: { session } } = await supabase.auth.getSession();
+        if (session?.access_token) {
+          void fetch(
+            'https://quranchat-v20-production.up.railway.app/api/user/send-welcome-email',
+            {
+              method: 'POST',
+              headers: { Authorization: `Bearer ${session.access_token}` },
+            },
+          );
+        }
+      } catch { /* silent — welcome email is best-effort */ }
       return NextResponse.redirect(`${origin}${next}`);
     }
   }
