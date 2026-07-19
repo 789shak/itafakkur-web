@@ -92,7 +92,16 @@ export function FeatureOrbit({ autoOpen = false }: Props) {
           animate={reduceMotion ? undefined : { scale: [1, 1.4, 1] }}
           transition={reduceMotion ? undefined : { duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
         />
-        <h1 className="font-serif text-brown text-5xl sm:text-6xl md:text-7xl font-medium tracking-tight text-center">
+        <h1
+          className="font-serif text-brown text-5xl sm:text-6xl md:text-7xl font-semibold tracking-tight text-center"
+          style={{
+            // Cream halo — lifts the wordmark off the 3D scene without
+            // altering its color or vibe. Barely visible on plain cream,
+            // pronounced when the mihrab glow behind it warms the cream.
+            textShadow:
+              '0 1px 24px rgba(248,245,239,0.95), 0 0 48px rgba(248,245,239,0.7), 0 2px 4px rgba(58,40,18,0.08)',
+          }}
+        >
           iTafakkur
         </h1>
         <span className="text-[11px] font-semibold text-muted uppercase tracking-[0.22em] mt-1">
