@@ -29,21 +29,27 @@ export async function GET(request: NextRequest) {
     const { error } = await supabase.auth.exchangeCodeForSession(code);
     if (!error) {
       // Fire welcome email trigger — idempotent server-side via
-      // profiles.welcomed_at guard. Never blocks the redirect; runs
-      // best-effort. Covers all signup paths (email/password confirmation,
-      // magic link, Google OAuth) since all flow through this callback.
+      // profiles.welcomed_at guard. Awaited so Edge runtime doesn't kill
+      // the fetch when the response is sent; wrapped in try/catch so
+      // failures never block the redirect.
       try {
         const { data: { session } } = await supabase.auth.getSession();
         if (session?.access_token) {
-          void fetch(
+          const res = await fetch(
             'https://quranchat-v20-production.up.railway.app/api/user/send-welcome-email',
             {
               method: 'POST',
               headers: { Authorization: `Bearer ${session.access_token}` },
             },
           );
+          // Log the result so we can debug from Vercel logs
+          // eslint-disable-next-line no-console
+          console.log('[welcome-email]', res.status, await res.text().catch(() => ''));
         }
-      } catch { /* silent — welcome email is best-effort */ }
+      } catch (err) {
+        // eslint-disable-next-line no-console
+        console.warn('[welcome-email] fetch failed:', err);
+      }
       return NextResponse.redirect(`${origin}${next}`);
     }
   }
