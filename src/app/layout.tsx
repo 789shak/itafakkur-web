@@ -68,8 +68,17 @@ export default function RootLayout({
       className={`${fraunces.variable} ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        {/* Skip-to-content — visible only on keyboard focus. Lets
+            screen-reader + keyboard users bypass the header nav on
+            every page load (WCAG 2.4.1). */}
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-full focus:bg-gold focus:text-brown focus:font-semibold focus:text-sm focus:shadow-lg"
+        >
+          Skip to content
+        </a>
         <SiteHeader />
-        <main className="flex-1 flex flex-col">{children}</main>
+        <main id="main" className="flex-1 flex flex-col">{children}</main>
         <SiteFooter />
       </body>
     </html>
