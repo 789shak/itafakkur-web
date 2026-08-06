@@ -82,9 +82,16 @@ export function FeatureOrbit({ autoOpen = false }: Props) {
         className="relative z-20 flex flex-col items-center gap-2 group focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-4 focus-visible:ring-offset-cream rounded-full"
         aria-expanded={open}
         aria-label={open ? 'Close feature reveal' : 'Explore iTafakkur features'}
-        initial={{ opacity: 0, scale: 0.95 }}
+        // 2026-08-06 — LCP fix. This button wraps the H1, which is the
+        // page's Largest Contentful Paint element. It previously entered
+        // with initial={{opacity:0}} + a 0.6s fade/scale tween, meaning
+        // the heading was invisible until JS hydrated AND the animation
+        // finished — directly delaying LCP. initial={false} skips the
+        // entrance animation entirely so it paints at full opacity
+        // immediately; the pulsing dot above keeps its own looping
+        // animation as the "alive" affordance instead.
+        initial={false}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
       >
         <motion.span
           aria-hidden="true"
