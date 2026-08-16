@@ -6,12 +6,19 @@
  * concern; the interactive scene is code-split so bots + slow
  * connections still get meaningful HTML on first paint.
  *
- * Below the hero: nothing else on this page — v1 keeps the landing
- * focused. Feature-specific SEO pages (per-verse Quran, per-city
- * prayer times, per-Name pages) live under their own routes.
+ * Below the hero: three focused sections (what's inside, why it's
+ * built this way, get the app) — added 2026-08-16 because a hero
+ * with nothing beneath it read as thin/unfinished rather than
+ * "minimal." Each section pulls from copy that already exists
+ * elsewhere on the site (about, download) instead of inventing new
+ * claims. Feature-specific SEO pages (per-verse Quran, per-city
+ * prayer times, per-Name pages) still live under their own routes.
  */
 import type { Metadata } from 'next';
 import { Hero } from '@/components/hero/hero';
+import { FeatureHighlights } from '@/components/home/feature-highlights';
+import { TrustBand } from '@/components/home/trust-band';
+import { DownloadBand } from '@/components/home/download-band';
 
 export const metadata: Metadata = {
   title: 'iTafakkur — Your daily Muslim companion',
@@ -25,5 +32,12 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  return <Hero />;
+  return (
+    <>
+      <Hero />
+      <FeatureHighlights />
+      <TrustBand />
+      <DownloadBand />
+    </>
+  );
 }

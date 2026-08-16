@@ -36,12 +36,16 @@ function Arch({
   width = 1.4,
   depth = 0.18,
   color = '#3A2812',
+  emissive = '#000000',
+  emissiveIntensity = 0,
 }: {
   position?: [number, number, number];
   height?: number;
   width?: number;
   depth?: number;
   color?: string;
+  emissive?: string;
+  emissiveIntensity?: number;
 }) {
   const geometry = useMemo(() => {
     const shape = new THREE.Shape();
@@ -69,8 +73,10 @@ function Arch({
     <mesh position={position} geometry={geometry} castShadow receiveShadow>
       <meshStandardMaterial
         color={color}
-        roughness={0.7}
-        metalness={0.1}
+        roughness={0.55}
+        metalness={0.18}
+        emissive={emissive}
+        emissiveIntensity={emissiveIntensity}
       />
     </mesh>
   );
@@ -84,16 +90,30 @@ function Arch({
 function Mihrab() {
   return (
     <group position={[0, -1.2, -2]}>
-      <Arch height={3.6} width={1.8} depth={0.4} color="#2A1D0E" />
-      {/* Warm point light inside the mihrab, low intensity so it
-          glows through the opening without blowing out. */}
+      <Arch
+        height={3.6}
+        width={1.8}
+        depth={0.4}
+        color="#3A2412"
+        emissive="#B8892C"
+        emissiveIntensity={0.22}
+      />
+      {/* Warm point light inside the mihrab — brighter and more
+          saturated so the glow actually reads on screen instead of
+          disappearing into the base color. */}
       <pointLight
         position={[0, 1.5, 0.5]}
-        color="#D4AF37"
-        intensity={2.2}
-        distance={4}
-        decay={1.5}
+        color="#F2C464"
+        intensity={5.5}
+        distance={6}
+        decay={1.6}
       />
+      {/* Soft glow disc behind the arch — a cheap, reliable way to get
+          a warm halo without a full bloom post-process pipeline. */}
+      <mesh position={[0, 1.4, -0.35]}>
+        <circleGeometry args={[1.6, 32]} />
+        <meshBasicMaterial color="#D4AF37" transparent opacity={0.22} depthWrite={false} />
+      </mesh>
     </group>
   );
 }
@@ -189,44 +209,63 @@ export function MosqueScene() {
     <Canvas
       dpr={[1, 1.5]}
       shadows
-      camera={{ position: [0, 0.3, 5], fov: 55 }}
+      camera={{ position: [0, 0.1, 6], fov: 50 }}
       gl={{ antialias: true, alpha: true }}
       style={{ background: 'transparent' }}
     >
       <Suspense fallback={null}>
+        {/* Warm cream fog — distant colonnade fades into the page
+            background instead of reading as flat grey cutouts. Also
+            adds a sense of atmosphere/depth for near-zero cost. */}
+        <fog attach="fog" args={['#F1E7D2', 5, 13]} />
+
         {/* --- Lighting --- */}
-        {/* Soft ambient so shadows aren't pure black. */}
-        <ambientLight intensity={0.25} color="#F8F5EF" />
+        {/* Warmer, brighter ambient so front-facing surfaces (the
+            faces pointed at the camera) don't fall into flat shadow —
+            this was the main reason the arches read as grey slabs. */}
+        <ambientLight intensity={0.55} color="#F4E4C8" />
         {/* Warm key light from above-left, mimicking a high window
             common in Islamic architecture (clerestory). */}
         <directionalLight
           position={[3, 6, 4]}
-          intensity={0.9}
-          color="#F4E4B5"
+          intensity={1.3}
+          color="#FFD98A"
           castShadow
           shadow-mapSize={[1024, 1024]}
         />
         {/* Cool fill from opposite side to keep depth readable. */}
         <directionalLight
           position={[-4, 2, 2]}
-          intensity={0.35}
+          intensity={0.4}
           color="#B8C4D9"
         />
+        {/* Low warm front-fill facing the camera so arch faces read
+            as rich brown instead of near-black silhouettes. */}
+        <pointLight position={[0, 0.5, 4.5]} color="#E8B563" intensity={1.6} distance={9} decay={2} />
 
         {/* --- Geometry --- */}
         <Mihrab />
 
         {/* Colonnade — 4 arches arranged in a shallow arc behind
-            the mihrab, giving a sense of depth without cluttering. */}
-        <Arch position={[-3.2, -1.2, -1.5]} height={2.4} width={1.1} color="#3A2812" />
-        <Arch position={[-1.9, -1.2, -0.8]} height={2.6} width={1.15} color="#3A2812" />
-        <Arch position={[1.9, -1.2, -0.8]} height={2.6} width={1.15} color="#3A2812" />
-        <Arch position={[3.2, -1.2, -1.5]} height={2.4} width={1.1} color="#3A2812" />
+            the mihrab, giving a sense of depth without cluttering.
+            Lightened + slightly warmed from the mihrab so they read
+            as a distinct, receding layer rather than a wall of the
+            same flat brown. */}
+        <Arch position={[-3.2, -1.2, -1.5]} height={2.4} width={1.1} color="#5A3F22" />
+        <Arch position={[-1.9, -1.2, -0.8]} height={2.6} width={1.15} color="#5A3F22" />
+        <Arch position={[1.9, -1.2, -0.8]} height={2.6} width={1.15} color="#5A3F22" />
+        <Arch position={[3.2, -1.2, -1.5]} height={2.4} width={1.1} color="#5A3F22" />
 
-        {/* Floor plane — subtle gradient shadow catcher */}
+        {/* Floor plane — warm gold-tinted gradient shadow catcher
+            instead of a flat grey shadowMaterial, so the ground
+            picks up the mihrab's glow. */}
         <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -1.21, 0]} receiveShadow>
           <planeGeometry args={[20, 12]} />
-          <shadowMaterial opacity={0.25} />
+          <meshStandardMaterial color="#EBD9A8" roughness={0.9} transparent opacity={0.35} />
+        </mesh>
+        <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -1.2, 0]} receiveShadow>
+          <planeGeometry args={[20, 12]} />
+          <shadowMaterial opacity={0.22} />
         </mesh>
 
         {/* --- Atmosphere --- */}

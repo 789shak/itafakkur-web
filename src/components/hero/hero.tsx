@@ -96,13 +96,13 @@ export function Hero() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-8">
           <a
             href="/download"
-            className="inline-flex items-center px-6 h-11 rounded-full bg-gold text-brown text-sm font-semibold hover:bg-gold-dark hover:text-cream transition-colors"
+            className="inline-flex items-center px-6 h-11 rounded-full bg-gold text-brown text-sm font-semibold shadow-[0_4px_18px_rgba(212,175,55,0.35)] hover:bg-gold-dark hover:text-cream hover:-translate-y-0.5 hover:shadow-[0_6px_24px_rgba(212,175,55,0.45)] transition-all"
           >
             Get the app
           </a>
           <a
             href="mailto:support.itafakkur@gmail.com?subject=Feedback"
-            className="inline-flex items-center px-6 h-11 rounded-full border border-border text-brown text-sm font-medium hover:bg-white transition-colors"
+            className="inline-flex items-center px-6 h-11 rounded-full border border-border text-brown text-sm font-medium hover:bg-white hover:-translate-y-0.5 transition-all"
           >
             Contact us
           </a>

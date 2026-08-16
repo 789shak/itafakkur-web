@@ -100,6 +100,11 @@ export function SiteFooter() {
                 Terms
               </Link>
             </li>
+            <li>
+              <Link href="/dmca" className="text-muted hover:text-brown transition-colors">
+                DMCA
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
