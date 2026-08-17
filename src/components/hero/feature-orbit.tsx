@@ -102,11 +102,11 @@ export function FeatureOrbit({ autoOpen = false }: Props) {
         <h1
           className="font-serif text-brown text-5xl sm:text-6xl md:text-7xl font-semibold tracking-tight text-center"
           style={{
-            // Cream halo — lifts the wordmark off the 3D scene without
-            // altering its color or vibe. Barely visible on plain cream,
-            // pronounced when the mihrab glow behind it warms the cream.
+            // Dark halo — lifts the light wordmark off the busy 3D
+            // scene behind it. Was a light/cream halo pre-2026-08-17;
+            // flipped dark to match the site's new dark theme.
             textShadow:
-              '0 1px 24px rgba(248,245,239,0.95), 0 0 48px rgba(248,245,239,0.7), 0 2px 4px rgba(58,40,18,0.08)',
+              '0 1px 32px rgba(20,16,12,0.9), 0 0 56px rgba(20,16,12,0.75), 0 2px 4px rgba(0,0,0,0.3)',
           }}
         >
           iTafakkur
@@ -150,7 +150,7 @@ export function FeatureOrbit({ autoOpen = false }: Props) {
             >
               <Link
                 href={f.href}
-                className="group flex flex-col items-center gap-2 w-28 py-4 px-3 rounded-2xl bg-white/80 backdrop-blur-sm border border-border shadow-[0_2px_16px_rgba(58,40,18,0.04)] hover:shadow-[0_4px_24px_rgba(58,40,18,0.10)] hover:border-gold/40 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                className="group flex flex-col items-center gap-2 w-28 py-4 px-3 rounded-2xl bg-surface/85 backdrop-blur-sm border border-border shadow-[0_2px_16px_rgba(0,0,0,0.25)] hover:shadow-[0_4px_24px_rgba(52,168,112,0.18)] hover:border-gold/40 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
               >
                 <span className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center group-hover:bg-gold/20 transition-colors">
                   <Icon size={18} className="text-gold-dark" strokeWidth={1.75} />
@@ -171,7 +171,7 @@ export function FeatureOrbit({ autoOpen = false }: Props) {
             <Link
               key={f.key}
               href={f.href}
-              className="flex flex-col items-center gap-2 py-4 px-3 rounded-2xl bg-white/80 border border-border"
+              className="flex flex-col items-center gap-2 py-4 px-3 rounded-2xl bg-surface/85 border border-border"
             >
               <span className="w-9 h-9 rounded-full bg-gold/10 flex items-center justify-center">
                 <Icon size={16} className="text-gold-dark" strokeWidth={1.75} />

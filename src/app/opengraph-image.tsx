@@ -23,7 +23,7 @@ export default function OpengraphImage() {
           width: '100%',
           height: '100%',
           background:
-            'linear-gradient(135deg, #F8F5EF 0%, #EFE8DD 50%, #E5D7B8 100%)',
+            'linear-gradient(135deg, #14100C 0%, #1A140E 50%, #201810 100%)',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -32,15 +32,15 @@ export default function OpengraphImage() {
           position: 'relative',
         }}
       >
-        {/* Gold accent dot */}
+        {/* Green accent dot */}
         <div
           style={{
             width: '24px',
             height: '24px',
             borderRadius: '50%',
-            background: '#D4AF37',
+            background: '#34A870',
             marginBottom: '32px',
-            boxShadow: '0 4px 24px rgba(212, 175, 55, 0.4)',
+            boxShadow: '0 4px 24px rgba(52, 168, 112, 0.5)',
           }}
         />
 
@@ -50,7 +50,7 @@ export default function OpengraphImage() {
             fontFamily: 'serif',
             fontSize: '150px',
             fontWeight: 500,
-            color: '#3A2812',
+            color: '#F3EDE2',
             letterSpacing: '-4px',
             lineHeight: 1,
             marginBottom: '24px',
@@ -64,7 +64,7 @@ export default function OpengraphImage() {
           style={{
             fontFamily: 'sans-serif',
             fontSize: '32px',
-            color: '#5C4A32',
+            color: '#A99C8C',
             textAlign: 'center',
             maxWidth: '900px',
             lineHeight: 1.35,
@@ -81,7 +81,7 @@ export default function OpengraphImage() {
             bottom: '60px',
             left: '80px',
             fontSize: '20px',
-            color: '#8C7A62',
+            color: '#A99C8C',
             letterSpacing: '3px',
             textTransform: 'uppercase',
             fontWeight: 600,
@@ -96,7 +96,7 @@ export default function OpengraphImage() {
             bottom: '60px',
             right: '80px',
             fontSize: '20px',
-            color: '#8C7A62',
+            color: '#A99C8C',
           }}
         >
           itafakkur.com

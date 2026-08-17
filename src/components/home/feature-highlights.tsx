@@ -99,7 +99,7 @@ export function FeatureHighlights() {
             <Link
               key={key}
               href={href}
-              className="group flex items-start gap-4 py-6 border-t border-border/70 transition-colors hover:bg-white/50 -mx-4 px-4 rounded-xl"
+              className="group flex items-start gap-4 py-6 border-t border-border/70 transition-colors hover:bg-surface -mx-4 px-4 rounded-xl"
             >
               <span className="mt-0.5 flex-shrink-0 w-11 h-11 rounded-2xl bg-gold/12 flex items-center justify-center group-hover:bg-gold/22 transition-colors">
                 <Icon size={19} className="text-gold-dark" strokeWidth={1.75} />

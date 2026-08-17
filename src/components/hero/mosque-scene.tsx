@@ -18,6 +18,11 @@
  * Motion: single slow camera pan (2° / 6 seconds). Respects
  * prefers-reduced-motion via CSS media query in globals.css (Framer
  * Motion + R3F both honor it).
+ *
+ * 2026-08-17: re-lit for the site's dark theme (was tuned for a cream
+ * background). Ambient dropped so shaded faces read as depth against
+ * black instead of flat grey; fill light shifted from neutral blue to
+ * green to echo the new accent; floor/fog darkened to match.
  */
 'use client';
 
@@ -214,58 +219,61 @@ export function MosqueScene() {
       style={{ background: 'transparent' }}
     >
       <Suspense fallback={null}>
-        {/* Warm cream fog — distant colonnade fades into the page
-            background instead of reading as flat grey cutouts. Also
-            adds a sense of atmosphere/depth for near-zero cost. */}
-        <fog attach="fog" args={['#F1E7D2', 5, 13]} />
+        {/* Dark fog, matching the page background (#14100C) — distant
+            colonnade fades into the dark page instead of reading as a
+            hard-edged cutout. Re-tuned 2026-08-17 for the dark theme;
+            was a light cream fog before. */}
+        <fog attach="fog" args={['#100C09', 4, 12]} />
 
         {/* --- Lighting --- */}
-        {/* Warmer, brighter ambient so front-facing surfaces (the
-            faces pointed at the camera) don't fall into flat shadow —
-            this was the main reason the arches read as grey slabs. */}
-        <ambientLight intensity={0.55} color="#F4E4C8" />
+        {/* Low ambient — on a dark background we WANT shaded faces to
+            fall toward black (that reads as depth/atmosphere here,
+            unlike on the old cream bg where it read as flat grey). */}
+        <ambientLight intensity={0.16} color="#2A2018" />
         {/* Warm key light from above-left, mimicking a high window
             common in Islamic architecture (clerestory). */}
         <directionalLight
           position={[3, 6, 4]}
-          intensity={1.3}
+          intensity={1.5}
           color="#FFD98A"
           castShadow
           shadow-mapSize={[1024, 1024]}
         />
-        {/* Cool fill from opposite side to keep depth readable. */}
+        {/* Cool-green fill from the opposite side — ties the scene to
+            the site's new green accent instead of a neutral blue fill. */}
         <directionalLight
           position={[-4, 2, 2]}
-          intensity={0.4}
-          color="#B8C4D9"
+          intensity={0.3}
+          color="#4FBE8C"
         />
         {/* Low warm front-fill facing the camera so arch faces read
-            as rich brown instead of near-black silhouettes. */}
-        <pointLight position={[0, 0.5, 4.5]} color="#E8B563" intensity={1.6} distance={9} decay={2} />
+            as rich, lit brown instead of pure silhouettes. */}
+        <pointLight position={[0, 0.5, 4.5]} color="#E8B563" intensity={1.3} distance={9} decay={2} />
 
         {/* --- Geometry --- */}
         <Mihrab />
 
         {/* Colonnade — 4 arches arranged in a shallow arc behind
             the mihrab, giving a sense of depth without cluttering.
-            Lightened + slightly warmed from the mihrab so they read
-            as a distinct, receding layer rather than a wall of the
-            same flat brown. */}
-        <Arch position={[-3.2, -1.2, -1.5]} height={2.4} width={1.1} color="#5A3F22" />
-        <Arch position={[-1.9, -1.2, -0.8]} height={2.6} width={1.15} color="#5A3F22" />
-        <Arch position={[1.9, -1.2, -0.8]} height={2.6} width={1.15} color="#5A3F22" />
-        <Arch position={[3.2, -1.2, -1.5]} height={2.4} width={1.1} color="#5A3F22" />
+            Kept slightly warmer than pure black so they read as
+            distinct silhouettes against the fog rather than vanishing
+            into it entirely. */}
+        <Arch position={[-3.2, -1.2, -1.5]} height={2.4} width={1.1} color="#3A2A17" />
+        <Arch position={[-1.9, -1.2, -0.8]} height={2.6} width={1.15} color="#3A2A17" />
+        <Arch position={[1.9, -1.2, -0.8]} height={2.6} width={1.15} color="#3A2A17" />
+        <Arch position={[3.2, -1.2, -1.5]} height={2.4} width={1.1} color="#3A2A17" />
 
-        {/* Floor plane — warm gold-tinted gradient shadow catcher
-            instead of a flat grey shadowMaterial, so the ground
-            picks up the mihrab's glow. */}
+        {/* Floor — dark, only faintly warmed near the mihrab, plus a
+            soft contact shadow. A bright floor plane here would read
+            as a glowing slab on a black scene, so this is deliberately
+            subtle. */}
         <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -1.21, 0]} receiveShadow>
           <planeGeometry args={[20, 12]} />
-          <meshStandardMaterial color="#EBD9A8" roughness={0.9} transparent opacity={0.35} />
+          <meshStandardMaterial color="#1E1610" roughness={0.9} transparent opacity={0.55} />
         </mesh>
         <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -1.2, 0]} receiveShadow>
           <planeGeometry args={[20, 12]} />
-          <shadowMaterial opacity={0.22} />
+          <shadowMaterial opacity={0.35} />
         </mesh>
 
         {/* --- Atmosphere --- */}

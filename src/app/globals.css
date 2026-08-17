@@ -1,27 +1,40 @@
 @import "tailwindcss";
 
 /* ---------------------------------------------------------------------
- * iTafakkur brand tokens
+ * iTafakkur brand tokens — WEB DARK THEME
  *
- * Locked 2026-07-16 per web v1 spec:
- *   - Gold primary #D4AF37 (accent, CTAs, focus states)
- *   - Deep brown #3A2812 (primary text, dark surfaces)
- *   - Warm cream #F8F5EF (page background, cards)
- *   - Muted brown #8C7A62 (secondary text, borders)
+ * 2026-08-17: Alfie approved a full dark-theme redesign of the website
+ * (itafakkur.com), moving away from the cream/gold look that's still
+ * "locked" and shared with the mobile app. This is an intentional,
+ * explicit web-only divergence — the mobile app's Colors constant is
+ * untouched. If web and app should match again later, update the app
+ * instead of reverting this file.
  *
- * Match the mobile app's palette so users experience one brand across
- * web + iOS + Android. Do NOT rename these without updating the mobile
- * app's Colors constant too.
+ * The token NAMES below (cream/brown/gold/muted/border) are kept as-is
+ * so every existing component (header, footer, all ~20 inner pages)
+ * repaints correctly without a mechanical rename pass. Read them by
+ * role, not by their literal color-word:
+ *   --brand-cream  → page background (now near-black, not cream)
+ *   --brand-brown  → primary text (now off-white, not brown)
+ *   --brand-gold   → primary accent (now green, not gold)
+ *   --brand-muted  → secondary text
+ *   --brand-border → hairline borders
+ *   --brand-surface (NEW) → elevated card background, replaces bg-white
+ *   --brand-warm (NEW)    → the old gold, kept for warm highlight
+ *                            moments (hero mihrab glow) so the site
+ *                            isn't a flat green-on-black clone.
  * ------------------------------------------------------------------- */
 :root {
-  --background: #F8F5EF;
-  --foreground: #3A2812;
-  --brand-gold: #D4AF37;
-  --brand-gold-dark: #B8892C;
-  --brand-brown: #3A2812;
-  --brand-cream: #F8F5EF;
-  --brand-muted: #8C7A62;
-  --brand-border: #EFE8DD;
+  --background: #14100C;
+  --foreground: #F3EDE2;
+  --brand-gold: #34A870;
+  --brand-gold-dark: #2C8C5C;
+  --brand-brown: #F3EDE2;
+  --brand-cream: #14100C;
+  --brand-muted: #A99C8C;
+  --brand-border: #2A241C;
+  --brand-surface: #1E1812;
+  --brand-warm: #D4AF37;
 }
 
 @theme inline {
@@ -33,18 +46,11 @@
   --color-cream: var(--brand-cream);
   --color-muted: var(--brand-muted);
   --color-border: var(--brand-border);
+  --color-surface: var(--brand-surface);
+  --color-warm: var(--brand-warm);
   --font-serif: var(--font-fraunces);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* Dark mode deferred to post-launch. Same tokens for now so we
-       don't ship a half-baked dark theme. Revisit at v1.1. */
-    --background: #F8F5EF;
-    --foreground: #3A2812;
-  }
 }
 
 body {

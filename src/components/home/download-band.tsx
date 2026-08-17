@@ -3,6 +3,12 @@
  *
  * Reuses the exact store URLs from /download rather than duplicating
  * a second, possibly-drifting copy of them.
+ *
+ * The buttons intentionally use bg-brown/text-cream (which now render
+ * as light-pill / dark-icon since the 2026-08-17 dark theme flip) —
+ * that happens to match Apple's own "white badge on dark background"
+ * App Store guidance, so leave this pairing as-is rather than
+ * "fixing" it to bg-surface.
  */
 const APP_STORE_URL = 'https://apps.apple.com/app/id6766188629';
 const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=net.quranchat.app';
@@ -23,7 +29,7 @@ export function DownloadBand() {
             href={APP_STORE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-3 h-14 rounded-2xl bg-brown text-cream text-sm font-medium hover:bg-brown/90 hover:-translate-y-0.5 transition-all shadow-[0_4px_20px_rgba(58,40,18,0.15)]"
+            className="flex items-center justify-center gap-3 h-14 rounded-2xl bg-brown text-cream text-sm font-medium hover:bg-brown/90 hover:-translate-y-0.5 transition-all shadow-[0_4px_20px_rgba(0,0,0,0.35)]"
           >
             <span className="text-2xl"></span>
             <span className="flex flex-col items-start leading-tight">
@@ -35,7 +41,7 @@ export function DownloadBand() {
             href={PLAY_STORE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-3 h-14 rounded-2xl bg-brown text-cream text-sm font-medium hover:bg-brown/90 hover:-translate-y-0.5 transition-all shadow-[0_4px_20px_rgba(58,40,18,0.15)]"
+            className="flex items-center justify-center gap-3 h-14 rounded-2xl bg-brown text-cream text-sm font-medium hover:bg-brown/90 hover:-translate-y-0.5 transition-all shadow-[0_4px_20px_rgba(0,0,0,0.35)]"
           >
             <span className="text-xl">▶</span>
             <span className="flex flex-col items-start leading-tight">

@@ -32,7 +32,7 @@ const MosqueScene = dynamic(
         className="absolute inset-0"
         style={{
           background:
-            'radial-gradient(ellipse at center, rgba(212,175,55,0.10) 0%, rgba(248,245,239,0) 60%)',
+            'radial-gradient(ellipse at center, rgba(52,168,112,0.14) 0%, rgba(20,16,12,0) 60%)',
         }}
       />
     ),
@@ -72,13 +72,16 @@ export function Hero() {
         <MosqueScene />
       </div>
 
-      {/* Cream gradient overlay for text readability */}
+      {/* Dark gradient overlay for text readability — was tuned for a
+          cream background pre-2026-08-17; now darkens toward the
+          bottom so the scene blends into the sections below instead
+          of ending on a hard edge. */}
       <div
         aria-hidden="true"
         className="absolute inset-0 z-0 pointer-events-none"
         style={{
           background:
-            'linear-gradient(to bottom, rgba(248,245,239,0.4) 0%, rgba(248,245,239,0.15) 40%, rgba(248,245,239,0.75) 100%)',
+            'linear-gradient(to bottom, rgba(20,16,12,0.25) 0%, rgba(20,16,12,0.1) 40%, rgba(20,16,12,0.85) 100%)',
         }}
       />
 
@@ -102,7 +105,7 @@ export function Hero() {
           </a>
           <a
             href="mailto:support.itafakkur@gmail.com?subject=Feedback"
-            className="inline-flex items-center px-6 h-11 rounded-full border border-border text-brown text-sm font-medium hover:bg-white hover:-translate-y-0.5 transition-all"
+            className="inline-flex items-center px-6 h-11 rounded-full border border-border text-brown text-sm font-medium hover:bg-surface hover:-translate-y-0.5 transition-all"
           >
             Contact us
           </a>
