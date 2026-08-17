@@ -36,7 +36,7 @@ export default function DownloadPage() {
         </p>
       </header>
 
-      <div className="rounded-3xl border border-border bg-white/80 p-8 sm:p-10 mb-10">
+      <div className="rounded-3xl border border-border bg-surface/80 p-8 sm:p-10 mb-10">
         <div className="grid sm:grid-cols-2 gap-4">
           <a
             href={APP_STORE_URL}
@@ -72,7 +72,7 @@ export default function DownloadPage() {
           ['🧭', 'Qibla direction', 'Point to Makkah from anywhere — including AR view.'],
           ['💛', 'Free forever', 'No ads. No selling data. Just what helps you draw closer.'],
         ].map(([emoji, title, desc]) => (
-          <div key={title} className="rounded-2xl border border-border bg-white/70 p-5">
+          <div key={title} className="rounded-2xl border border-border bg-surface/70 p-5">
             <p className="text-2xl mb-2">{emoji}</p>
             <p className="font-serif text-brown text-base font-medium mb-1">{title}</p>
             <p className="text-muted text-xs leading-relaxed">{desc}</p>

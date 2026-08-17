@@ -71,7 +71,7 @@ export default async function DivineNamePage(
         <p className="text-muted text-xl">{dn.translation}</p>
       </div>
 
-      <div className="rounded-2xl border border-border bg-white/80 p-8 mb-10">
+      <div className="rounded-2xl border border-border bg-surface/80 p-8 mb-10">
         <p className="text-brown text-lg leading-relaxed text-center">
           {dn.meaning}
         </p>

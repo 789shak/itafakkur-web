@@ -73,7 +73,7 @@ export default async function CityPrayerTimesPage(
       </header>
 
       {data ? (
-        <div className="rounded-2xl border border-border bg-white/80 p-8 mb-10">
+        <div className="rounded-2xl border border-border bg-surface/80 p-8 mb-10">
           <div className="grid grid-cols-2 sm:grid-cols-5 gap-4">
             {(['Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'] as const).map((name) => (
               <div key={name} className="text-center">
@@ -102,7 +102,7 @@ export default async function CityPrayerTimesPage(
           </div>
         </div>
       ) : (
-        <div className="rounded-2xl border border-border bg-white/80 p-8 mb-10 text-center text-muted">
+        <div className="rounded-2xl border border-border bg-surface/80 p-8 mb-10 text-center text-muted">
           Prayer times temporarily unavailable. Please refresh.
         </div>
       )}

@@ -33,7 +33,7 @@ export default async function BookmarksPage() {
       </header>
 
       {bookmarks.length === 0 ? (
-        <div className="rounded-2xl border border-border bg-white/80 p-10 text-center">
+        <div className="rounded-2xl border border-border bg-surface/80 p-10 text-center">
           <p className="text-muted mb-4">No bookmarks yet.</p>
           <p className="text-brown text-sm mb-6">
             Long-press any verse in the mobile Qur&rsquo;an reader and tap
@@ -55,7 +55,7 @@ export default async function BookmarksPage() {
               <li key={b.id}>
                 <Link
                   href={`/quran/${surah}#${ayah}`}
-                  className="block rounded-2xl border border-border bg-white/80 p-5 hover:border-gold/40 transition-colors"
+                  className="block rounded-2xl border border-border bg-surface/80 p-5 hover:border-gold/40 transition-colors"
                 >
                   <div className="flex items-baseline justify-between gap-3 mb-1">
                     <p className="font-serif text-brown text-lg">

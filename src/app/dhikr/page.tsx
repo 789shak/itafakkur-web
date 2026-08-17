@@ -35,11 +35,11 @@ export default async function DhikrPage() {
       </header>
 
       <div className="grid sm:grid-cols-2 gap-4 mb-10">
-        <div className="rounded-2xl border border-border bg-white/80 p-8 text-center">
+        <div className="rounded-2xl border border-border bg-surface/80 p-8 text-center">
           <p className="text-[11px] text-muted uppercase tracking-wider mb-2">Today</p>
           <p className="font-serif text-brown text-5xl font-medium">{stats.today}</p>
         </div>
-        <div className="rounded-2xl border border-border bg-white/80 p-8 text-center">
+        <div className="rounded-2xl border border-border bg-surface/80 p-8 text-center">
           <p className="text-[11px] text-muted uppercase tracking-wider mb-2">Lifetime</p>
           <p className="font-serif text-brown text-5xl font-medium">{stats.lifetime.toLocaleString()}</p>
         </div>

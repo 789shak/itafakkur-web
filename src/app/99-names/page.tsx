@@ -42,7 +42,7 @@ export default function AsmaUlHusnaIndexPage() {
           <li key={name.number}>
             <Link
               href={`/99-names/${name.slug}`}
-              className="block p-4 rounded-xl bg-white/80 border border-border hover:border-gold/40 hover:shadow-[0_2px_16px_rgba(58,40,18,0.06)] transition-all"
+              className="block p-4 rounded-xl bg-surface/80 border border-border hover:border-gold/40 hover:shadow-[0_2px_16px_rgba(0,0,0,0.25)] transition-all"
             >
               <div className="flex items-baseline justify-between mb-2">
                 <span className="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center text-brown font-serif text-xs">

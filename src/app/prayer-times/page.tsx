@@ -93,7 +93,7 @@ export default function PrayerTimesPage() {
       </header>
 
       {!location && (
-        <div className="rounded-2xl border border-border bg-white/70 backdrop-blur-sm p-8 mb-10 text-center">
+        <div className="rounded-2xl border border-border bg-surface/70 backdrop-blur-sm p-8 mb-10 text-center">
           <MapPin className="mx-auto mb-3 text-gold-dark" size={28} strokeWidth={1.75} />
           <h2 className="font-serif text-2xl text-brown mb-2">
             Where should we calculate times for?
@@ -119,7 +119,7 @@ export default function PrayerTimesPage() {
       )}
 
       {location && times && (
-        <div className="rounded-2xl border border-border bg-white/80 p-8 mb-10">
+        <div className="rounded-2xl border border-border bg-surface/80 p-8 mb-10">
           <div className="flex items-center justify-between mb-6">
             <div>
               <h2 className="font-serif text-2xl text-brown">{location.label}</h2>
@@ -166,7 +166,7 @@ export default function PrayerTimesPage() {
             placeholder="Search a city…"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="w-full h-11 pl-10 pr-4 rounded-full bg-white border border-border text-sm text-brown placeholder:text-muted focus:outline-none focus:border-gold"
+            className="w-full h-11 pl-10 pr-4 rounded-full bg-surface border border-border text-sm text-brown placeholder:text-muted focus:outline-none focus:border-gold"
           />
         </div>
       </div>
@@ -182,7 +182,7 @@ export default function PrayerTimesPage() {
                 <Link
                   key={c.slug}
                   href={`/prayer-times/${c.slug}`}
-                  className="px-3 py-2 rounded-lg text-sm text-brown hover:bg-white hover:border-gold/40 border border-transparent transition-colors"
+                  className="px-3 py-2 rounded-lg text-sm text-brown hover:bg-surface hover:border-gold/40 border border-transparent transition-colors"
                 >
                   {c.name}
                   <span className="text-muted text-xs ml-1">· {c.country}</span>

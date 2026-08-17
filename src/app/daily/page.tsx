@@ -44,7 +44,7 @@ export default function DailyPage() {
       </header>
 
       {/* Verse */}
-      <section className="rounded-3xl border border-border bg-white/80 p-8 sm:p-10 mb-8">
+      <section className="rounded-3xl border border-border bg-surface/80 p-8 sm:p-10 mb-8">
         <p className="text-[11px] font-semibold text-gold-dark uppercase tracking-[0.2em] mb-6">
           Verse of the Day
         </p>
@@ -61,7 +61,7 @@ export default function DailyPage() {
       </section>
 
       {/* Hadith */}
-      <section className="rounded-3xl border border-border bg-white/80 p-8 sm:p-10 mb-8">
+      <section className="rounded-3xl border border-border bg-surface/80 p-8 sm:p-10 mb-8">
         <p className="text-[11px] font-semibold text-gold-dark uppercase tracking-[0.2em] mb-6">
           Hadith of the Day
         </p>
@@ -80,7 +80,7 @@ export default function DailyPage() {
       </section>
 
       {/* Dua */}
-      <section className="rounded-3xl border border-border bg-white/80 p-8 sm:p-10 mb-10">
+      <section className="rounded-3xl border border-border bg-surface/80 p-8 sm:p-10 mb-10">
         <p className="text-[11px] font-semibold text-gold-dark uppercase tracking-[0.2em] mb-6">
           Dua of the Day
         </p>

@@ -40,7 +40,7 @@ export default async function AccountPage() {
         </h1>
       </header>
 
-      <section className="rounded-2xl border border-border bg-white/80 p-6 mb-6">
+      <section className="rounded-2xl border border-border bg-surface/80 p-6 mb-6">
         <h2 className="text-[11px] font-semibold text-muted uppercase tracking-wider mb-4">Profile</h2>
         <dl className="space-y-3 text-sm">
           <div className="flex justify-between">
@@ -73,7 +73,7 @@ export default async function AccountPage() {
         )}
       </section>
 
-      <section className="rounded-2xl border border-border bg-white/80 p-6 mb-6">
+      <section className="rounded-2xl border border-border bg-surface/80 p-6 mb-6">
         <h2 className="text-[11px] font-semibold text-muted uppercase tracking-wider mb-4">Your data</h2>
         <ul className="space-y-2 text-sm">
           <li><Link href="/journal" className="text-brown hover:text-gold-dark">Journal →</Link></li>

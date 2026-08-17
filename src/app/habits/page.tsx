@@ -37,7 +37,7 @@ export default async function HabitsPage() {
       </header>
 
       {habits.length === 0 ? (
-        <div className="rounded-2xl border border-border bg-white/80 p-10 text-center">
+        <div className="rounded-2xl border border-border bg-surface/80 p-10 text-center">
           <p className="text-muted mb-4">No habits yet.</p>
           <p className="text-brown text-sm mb-6">
             Add habits in the app to track your daily Qur&rsquo;an reading, du&rsquo;a, dhikr,
@@ -58,7 +58,7 @@ export default async function HabitsPage() {
             return (
               <li
                 key={h.id}
-                className="rounded-2xl border border-border bg-white/80 p-5 flex items-center gap-4"
+                className="rounded-2xl border border-border bg-surface/80 p-5 flex items-center gap-4"
               >
                 <span className="text-2xl flex-shrink-0">{h.emoji || '•'}</span>
                 <div className="flex-1 min-w-0">

@@ -33,7 +33,7 @@ export default async function HijriCalendarPage() {
       </header>
 
       {hijri ? (
-        <div className="rounded-3xl border border-border bg-white/80 p-10 text-center mb-10">
+        <div className="rounded-3xl border border-border bg-surface/80 p-10 text-center mb-10">
           <p className="text-[11px] font-semibold text-muted uppercase tracking-[0.2em] mb-4">
             Today
           </p>
@@ -60,13 +60,13 @@ export default async function HijriCalendarPage() {
           </div>
         </div>
       ) : (
-        <div className="rounded-2xl border border-border bg-white/80 p-8 text-center text-muted">
+        <div className="rounded-2xl border border-border bg-surface/80 p-8 text-center text-muted">
           Hijri date temporarily unavailable. Please refresh.
         </div>
       )}
 
       <div className="grid sm:grid-cols-2 gap-4">
-        <div className="rounded-2xl border border-border bg-white/70 p-6">
+        <div className="rounded-2xl border border-border bg-surface/70 p-6">
           <h3 className="font-serif text-brown text-lg mb-2">About Hijri</h3>
           <p className="text-sm text-muted leading-relaxed">
             The Hijri calendar is a lunar system of 12 months (354 or 355
@@ -74,7 +74,7 @@ export default async function HijriCalendarPage() {
             Muhammad ﷺ from Makkah to Madinah in 622 CE.
           </p>
         </div>
-        <div className="rounded-2xl border border-border bg-white/70 p-6">
+        <div className="rounded-2xl border border-border bg-surface/70 p-6">
           <h3 className="font-serif text-brown text-lg mb-2">Upcoming events</h3>
           <ul className="text-sm text-muted space-y-1">
             <li>1 Muharram — Islamic New Year</li>

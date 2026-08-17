@@ -39,7 +39,7 @@ export default function QuranIndexPage() {
       </header>
 
       {/* Summary strip */}
-      <div className="rounded-2xl border border-border bg-white/70 p-6 mb-10 grid grid-cols-3 gap-4 text-center">
+      <div className="rounded-2xl border border-border bg-surface/70 p-6 mb-10 grid grid-cols-3 gap-4 text-center">
         <div>
           <p className="font-serif text-brown text-3xl font-medium">114</p>
           <p className="text-xs text-muted uppercase tracking-wider">Surahs</p>
@@ -60,7 +60,7 @@ export default function QuranIndexPage() {
           <li key={c.number}>
             <Link
               href={`/quran/${c.number}`}
-              className="flex items-center gap-4 p-4 rounded-xl bg-white/80 border border-border hover:border-gold/40 hover:shadow-[0_2px_16px_rgba(58,40,18,0.06)] transition-all"
+              className="flex items-center gap-4 p-4 rounded-xl bg-surface/80 border border-border hover:border-gold/40 hover:shadow-[0_2px_16px_rgba(0,0,0,0.25)] transition-all"
             >
               <span className="flex-shrink-0 w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-brown font-serif font-medium">
                 {c.number}

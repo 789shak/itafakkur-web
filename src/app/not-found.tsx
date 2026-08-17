@@ -37,7 +37,7 @@ export default function NotFound() {
         </Link>
         <Link
           href="/quran"
-          className="inline-flex items-center px-6 h-11 rounded-full border border-border text-brown text-sm font-medium hover:bg-white transition-colors"
+          className="inline-flex items-center px-6 h-11 rounded-full border border-border text-brown text-sm font-medium hover:bg-surface transition-colors"
         >
           Read the Qur&rsquo;an
         </Link>

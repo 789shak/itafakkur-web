@@ -40,7 +40,7 @@ function Arch({
   height = 3,
   width = 1.4,
   depth = 0.18,
-  color = '#3A2812',
+  color = '#3A2A17',
   emissive = '#000000',
   emissiveIntensity = 0,
 }: {

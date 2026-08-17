@@ -40,7 +40,7 @@ export default async function JournalPage() {
       </header>
 
       {entries.length === 0 ? (
-        <div className="rounded-2xl border border-border bg-white/80 p-10 text-center">
+        <div className="rounded-2xl border border-border bg-surface/80 p-10 text-center">
           <p className="text-muted mb-4">No entries yet.</p>
           <p className="text-brown text-sm mb-6">
             Open the iTafakkur app on your phone, save a reflection on any verse
@@ -59,7 +59,7 @@ export default async function JournalPage() {
             const verseTag = e.tags?.find((t) => t.startsWith('verse:'));
             const verseKey = verseTag?.slice('verse:'.length);
             return (
-              <li key={e.id} className="rounded-2xl border border-border bg-white/80 p-6">
+              <li key={e.id} className="rounded-2xl border border-border bg-surface/80 p-6">
                 <div className="flex items-baseline justify-between gap-3 mb-2">
                   <h2 className="font-serif text-brown text-xl">{e.title}</h2>
                   <time className="text-xs text-muted flex-shrink-0">
