@@ -118,7 +118,10 @@ export default function SignupPage() {
       </form>
 
       {message && (
-        <div className={`mt-4 text-center text-sm ${message.kind === 'error' ? 'text-red-700' : 'text-brown'}`}>
+        // Bug fix (2026-09-21 audit): same fix as login/page.tsx — red-700
+        // is a light-theme leftover with poor contrast on the current
+        // near-black background. red-400 is legible on dark.
+        <div className={`mt-4 text-center text-sm ${message.kind === 'error' ? 'text-red-400' : 'text-brown'}`}>
           {message.text}
         </div>
       )}

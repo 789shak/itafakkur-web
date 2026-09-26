@@ -76,7 +76,16 @@ export default async function HabitsPage() {
                   className={`text-xs px-3 py-1 rounded-full ${
                     checkedToday
                       ? 'bg-gold/20 text-brown font-semibold'
-                      : 'bg-cream text-muted'
+                      /* Bug fix (2026-09-21 audit): bg-cream is now #14100C
+                         (near-black page background, since the 2026-08-17
+                         dark-theme flip — see globals.css). This pill sat on
+                         a page whose own background is the same near-black,
+                         so the badge fill was indistinguishable from the
+                         page behind it — an invisible pill, even though the
+                         "Not yet" text itself was legible. Bordered/outlined
+                         treatment instead of a fill can't disappear that way
+                         regardless of what's behind it. */
+                      : 'border border-border text-muted'
                   }`}
                 >
                   {checkedToday ? 'Done today ✓' : 'Not yet'}

@@ -23,8 +23,6 @@ export const metadata: Metadata = {
   },
 };
 
-const REVELATION_FILTERS = ['All', 'Meccan', 'Medinan'] as const;
-
 export default function QuranIndexPage() {
   return (
     <div className="mx-auto max-w-5xl px-6 py-12">

@@ -133,7 +133,12 @@ export default function LoginPage() {
       </div>
 
       {message && (
-        <div className={`mt-4 text-center text-sm ${message.kind === 'error' ? 'text-red-700' : 'text-brown'}`}>
+        // Bug fix (2026-09-21 audit): text-red-700 is a dark red meant for
+        // LIGHT backgrounds — a leftover from before the 2026-08-17 dark-
+        // theme flip. On the current near-black page background it has
+        // poor contrast (low-luminance red on near-black). red-400 is the
+        // standard "error text on dark background" shade.
+        <div className={`mt-4 text-center text-sm ${message.kind === 'error' ? 'text-red-400' : 'text-brown'}`}>
           {message.text}
         </div>
       )}

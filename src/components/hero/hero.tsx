@@ -18,6 +18,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { FeatureOrbit } from './feature-orbit';
 
@@ -97,12 +98,17 @@ export function Hero() {
           <span className="not-italic"> — Qur&apos;an 13:28</span>
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-8">
-          <a
+          {/* Bug fix (2026-09-21 audit): was a plain <a> for an internal
+              route — bypasses Next's client-side router (full page reload
+              instead of a fast client nav) and skips automatic prefetching.
+              mailto: below stays a plain <a> — Link doesn't apply to
+              non-route protocols. */}
+          <Link
             href="/download"
             className="inline-flex items-center px-6 h-11 rounded-full bg-gold text-brown text-sm font-semibold shadow-[0_4px_18px_rgba(212,175,55,0.35)] hover:bg-gold-dark hover:text-cream hover:-translate-y-0.5 hover:shadow-[0_6px_24px_rgba(212,175,55,0.45)] transition-all"
           >
             Get the app
-          </a>
+          </Link>
           <a
             href="mailto:support.itafakkur@gmail.com?subject=Feedback"
             className="inline-flex items-center px-6 h-11 rounded-full border border-border text-brown text-sm font-medium hover:bg-surface hover:-translate-y-0.5 transition-all"

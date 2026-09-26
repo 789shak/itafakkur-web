@@ -21,6 +21,7 @@
  *    actually grants the safe-harbor protection.
  */
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Copyright / DMCA Policy',
@@ -127,9 +128,12 @@ export default function DmcaPage() {
           other users. Qur&rsquo;anic text, translations, and hadith are
           reproduced from established, attributed sources as described in
           our{' '}
-          <a href="/terms" className="text-gold-dark underline">
+          {/* Bug fix (2026-09-21 audit): internal route, was a plain <a>
+              (bypasses Next's client router). The two mailto: links above
+              stay <a> — Link doesn't apply to non-route protocols. */}
+          <Link href="/terms" className="text-gold-dark underline">
             Terms of Use
-          </a>
+          </Link>
           .
         </p>
 
