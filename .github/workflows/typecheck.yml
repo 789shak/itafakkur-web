@@ -1,0 +1,31 @@
+name: Typecheck
+
+# Why this exists (2026-09-26): a full-project audit turned up several
+# real TypeScript errors (including two I introduced myself and fixed in
+# the same pass) sitting undetected in this repo. Vercel's own `next
+# build` does type-check on deploy, so this is a second, faster net —
+# it fails on every push/PR, before a deploy even starts, so a broken
+# build shows up as a red X on GitHub rather than only in the Vercel
+# dashboard after the fact.
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  typecheck:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type-check (tsc --noEmit)
+        run: npm run typecheck
